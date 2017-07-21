@@ -16,17 +16,20 @@ def run():
             'name': 'BTC/CNY',
             'symbol': 0,
             'key_price': 'btcLast',
+            'icon': 'btc.png'
         },
         {
             'name': 'ETH/CNY',
             'symbol': 2,
             'key_price': 'ethLast',
+            'icon': 'eth.png'
         },
-        {
-            'name': 'LTC/CNY',
-            'symbol': 1,
-            'key_price': 'ltcLast',
-        },
+        # {
+        # 'name': 'LTC/CNY',
+        # 'symbol': 1,
+        # 'key_price': 'ltcLast',
+        # 'icon': 'ltc.png'
+        # },
     ]
 
     link = 'https://www.okcoin.cn'
@@ -62,6 +65,7 @@ def run():
                 'title': '{name}: {price} ({changeSign}{change}%)'.format(**kwargs),
                 'subtitle': 'Low: {low}, High: {high}'.format(**kwargs),
                 'arg': link,
+                'icon': symbol['icon'],
             }
             fb.addItem(**item)
         except Exception, e:
