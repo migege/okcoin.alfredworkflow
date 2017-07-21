@@ -27,13 +27,13 @@ def run():
         res = r.json()
 
         rows = []
-        rows.append({'name': 'BTC', 'price': res['btcLast']})
-        rows.append({'name': 'LTC', 'price': res['ltcLast']})
-        rows.append({'name': 'ETH', 'price': res['ethLast']})
+        rows.append({'name': 'BTC/CNY', 'price': res['btcLast']})
+        rows.append({'name': 'ETH/CNY', 'price': res['ethLast']})
+        rows.append({'name': 'LTC/CNY', 'price': res['ltcLast']})
 
         fb = Feedback()
         for row in rows:
-            kwargs = {'title': row['name'], 'subtitle': row['price'], 'arg': link}
+            kwargs = {'title': '{name}: {price}'.format(**row), 'subtitle': '', 'arg': link}
             fb.addItem(**kwargs)
         fb.output()
     except Exception, e:
