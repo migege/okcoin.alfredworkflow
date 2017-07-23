@@ -58,7 +58,7 @@ def run():
                 'change': res['change'],
                 'coinBalance': res['coinBalance'],
                 'money': res['money'],
-                'changeSign': '+' if float(res['change']) > 0 else '-',
+                'changeSign': '+' if float(res['change']) > 0 else '',
             }
 
             item = {
